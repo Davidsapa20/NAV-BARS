@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        .hero-section {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1920/1080') center/cover;
+            position: relative;
+        }
+        
+        .navbar {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            padding: 1rem 3%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: transparent;
+        }
+        
+        .logo-container {
+            border: 2px solid #FF4D1C;
+            padding: 0.5rem 1.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .logo-container:hover {
+            background-color: #FF4D1C;
+        }
+        
+        .logo-text {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            line-height: 1;
+            display: block;
+            text-decoration: none;
+        }
+        
+        .logo-subtext {
+            color: white;
+            font-size: 0.75rem;
+            display: block;
+            text-transform: uppercase;
+        }
+        
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: #FF4D1C;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #FF4D1C;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .call-now-btn {
+            background-color: #FF4D1C;
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .call-now-btn:hover {
+            background-color: #ff6240;
+        }
+        
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 5%;
+            transform: translateY(-50%);
+            color: white;
+        }
+        
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: bold;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        /* Hamburger menu for mobile */
+        
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+        /* CSS-only responsive menu */
+        
+        #menu-toggle {
+            display: none;
+        }
+        /* Media Queries for Responsiveness */
+        
+        @media screen and (max-width: 1024px) {
+            .nav-menu {
+                gap: 1.5rem;
+            }
+            .hero-title {
+                font-size: 3.5rem;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+                z-index: 1000;
+            }
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 70%;
+                max-width: 300px;
+                background-color: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+                padding: 80px 40px;
+                transition: right 0.3s ease;
+            }
+            #menu-toggle:checked~.nav-menu {
+                right: 0;
+            }
+            .call-now-btn {
+                padding: 0.6rem 1.5rem;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .navbar {
+                padding: 1rem 5%;
+            }
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            .logo-subtext {
+                font-size: 0.65rem;
+            }
+            .hero-title {
+                font-size: 2rem;
+            }
+            .call-now-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hero-section">
+        <nav class="navbar">
+            <a href="/" class="logo-container">
+                <span class="logo-text">MCR</span>
+                <span class="logo-subtext">Construction</span>
+            </a>
+
+            <input type="checkbox" id="menu-toggle" hidden>
+            <label for="menu-toggle" class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <ul class="nav-menu">
+                <li><a href="/services" class="nav-link">Services</a></li>
+                <li><a href="/projects" class="nav-link">Projects</a></li>
+                <li><a href="/about" class="nav-link">About Us</a></li>
+                <li><a href="/careers" class="nav-link">Careers</a></li>
+                <li><a href="/contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <a href="tel:+1234567890" class="call-now-btn">Call Now!</a>
+        </nav>
+
+        <div class="hero-content">
+            <h1 class="hero-title">Building a<br>Concrete Future</h1>
+        </div>
+    </div>
+</body>
+
+</html>

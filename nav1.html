@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purement Brasserie & Bar</title>
+    <style>
+        /* Reset and default styling */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        /* Navbar styling */
+        
+        body {
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5em 3em;
+            background-color: #fff;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        /* Left side logo text */
+        
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #111;
+            cursor: pointer;
+        }
+        /* Navigation links styling */
+        
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.5em;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #111;
+            font-size: 1em;
+            font-weight: 500;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+        /* Hover effect */
+        
+        .nav-links a:hover {
+            color: #1abc9c;
+        }
+        /* Hero Section styling */
+        
+        .hero {
+            text-align: center;
+            padding: 8em 2em;
+            background: url('hero-image.jpg') no-repeat center center/cover;
+            color: #fff;
+        }
+        
+        .hero h1 {
+            font-size: 4em;
+            font-weight: bold;
+            letter-spacing: 0.05em;
+        }
+        
+        .hero p {
+            font-size: 1.5em;
+            margin-top: 0.5em;
+            letter-spacing: 0.05em;
+        }
+        /* Responsive navbar for smaller screens */
+        
+        .menu-toggle {
+            display: none;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background-color: #fff;
+                width: 100%;
+                height: calc(100vh - 60px);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                display: none;
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">PUREMENT</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#book">Book a Table</a></li>
+            </ul>
+            <div class="menu-toggle">&#9776;</div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>BRASSERIE & BAR</h1>
+        <p>Delicious Meals, Cozy Ambiance</p>
+    </section>
+
+    <!-- JavaScript for Mobile Toggle -->
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('open');
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+         :root {
+            --primary-color: #d35400;
+            --glass-bg: rgba(255, 255, 255, 0.95);
+            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+            --hover-color: #ff6b1a;
+            --text-color: #333;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        
+        body {
+            background: #f8f9fa;
+        }
+        
+        .navbar-container {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: var(--glass-shadow);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .search-container {
+            position: relative;
+            flex: 1;
+            max-width: 250px;
+            transform: translateY(0);
+            transition: var(--transition);
+        }
+        
+        .search-container input {
+            width: 100%;
+            padding: 12px 40px;
+            border: none;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            font-size: 15px;
+        }
+        
+        .search-container input:focus {
+            outline: none;
+            box-shadow: 0 4px 15px rgba(211, 84, 0, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .search-container i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .logo {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .logo a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 38px;
+            font-style: italic;
+            font-weight: 300;
+            letter-spacing: 1px;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .logo a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: var(--primary-color);
+            transition: var(--transition);
+            transform: translateX(-50%);
+        }
+        
+        .logo a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-right {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 25px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .social-icons a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .social-icons a:hover {
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .user-cart {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .user-cart a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 15px;
+            transition: var(--transition);
+            padding: 8px 15px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .user-cart a:hover {
+            color: var(--primary-color);
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            gap: 50px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        .navigation a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+            transition: var(--transition);
+        }
+        
+        .navigation a::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(to right, transparent, var(--primary-color), transparent);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+        
+        .navigation a:hover {
+            color: var(--primary-color);
+        }
+        
+        .navigation a:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .cart-count {
+            background: var(--primary-color);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-size: 12px;
+            margin-left: 5px;
+        }
+        /* Smooth scroll effect */
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Glassmorphism effect on scroll */
+        
+        .navbar-container.scrolled {
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        /* Loading animation */
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .navbar,
+        .navigation {
+            animation: fadeIn 0.5s ease-out;
+        }
+        /* Hover effect for search */
+        
+        .search-container:hover input {
+            box-shadow: 0 4px 15px rgba(211, 84, 0, 0.15);
+        }
+        /* Mobile responsiveness */
+        
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+            .nav-right {
+                width: 100%;
+                justify-content: center;
+            }
+            .search-container {
+                max-width: 100%;
+            }
+            .navigation {
+                flex-wrap: wrap;
+                gap: 20px;
+                padding: 15px;
+            }
+        }
+        /* Dark mode support */
+        
+        @media (prefers-color-scheme: dark) {
+             :root {
+                --glass-bg: rgba(30, 30, 30, 0.95);
+                --text-color: #fff;
+                --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.35);
+            }
+            body {
+                background: #1a1a1a;
+            }
+            .search-container input {
+                background: rgba(45, 45, 45, 0.8);
+                color: white;
+            }
+            .navigation {
+                background: rgba(30, 30, 30, 0.8);
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar-container">
+        <nav class="navbar">
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search for products...">
+            </div>
+
+            <div class="logo">
+                <a href="/">adalene.</a>
+            </div>
+
+            <div class="nav-right">
+                <div class="social-icons">
+                    <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://pinterest.com" target="_blank" aria-label="Pinterest">
+                        <i class="fab fa-pinterest-p"></i>
+                    </a>
+                </div>
+
+                <div class="user-cart">
+                    <a href="/login">
+                        <i class="fas fa-user"></i> Log In
+                    </a>
+                    <a href="/cart">
+                        <i class="fas fa-shopping-bag"></i> Cart <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="navigation">
+            <a href="/shop">Shop All</a>
+            <a href="/story">Our Story</a>
+            <a href="/craft">Our Craft</a>
+            <a href="/gift-card">Gift Card</a>
+            <a href="/contact">Contact</a>
+        </div>
+    </div>
+
+    <script>
+        // Add scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar-container');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+
+</html>

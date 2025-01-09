@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* Reset some default styling */
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+    /* Navbar styling */
+    
+    .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1em 2em;
+        background-color: #f8f8f8;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    /* Logo styling */
+    
+    .logo {
+        font-size: 1.5em;
+        color: #2c3e50;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+    }
+    /* Navigation links styling */
+    
+    .nav-links {
+        display: flex;
+        gap: 1.5em;
+        list-style: none;
+    }
+    /* Individual link styling */
+    
+    .nav-links a {
+        text-decoration: none;
+        color: #2c3e50;
+        font-size: 1em;
+        padding: 0.5em 1em;
+        transition: color 0.3s, background-color 0.3s;
+    }
+    /* Add styles for Book Now button */
+    
+    .book-now {
+        background-color: #2c3e50;
+        color: #fff;
+        padding: 0.5em 1em;
+        border-radius: 25px;
+        font-weight: bold;
+        transition: background-color 0.3s, box-shadow 0.3s;
+    }
+    /* Hover effects */
+    
+    .nav-links a:hover {
+        color: #1abc9c;
+    }
+    
+    .book-now:hover {
+        background-color: #1abc9c;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    /* Responsive design */
+    
+    @media (max-width: 768px) {
+        .nav-links {
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            right: 10px;
+            background-color: #f8f8f8;
+            width: 150px;
+            padding: 1em;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: none;
+            /* hidden by default for smaller screens */
+        }
+        /* Mobile menu icon for responsiveness */
+        .navbar .menu-toggle {
+            display: block;
+            cursor: pointer;
+        }
+        /* Show nav links on toggle */
+        .nav-links.open {
+            display: flex;
+        }
+    }
+</style>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cleaning Service Website</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="logo">✨ The Cleanic</div>
+                <ul class="nav-links">
+                    <li><a href="#plans">Plans</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li>
+                        <a href="#login" class="login-icon"><img src="login-icon.png" alt="Login Icon"></a>
+                    </li>
+                    <li><a href="#book" class="book-now">Book Now</a></li>
+                </ul>
+            </nav>
+        </header>
+    </body>
+
+    </html>
+
+</body>
+<script>
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+        document.querySelector('.nav-links').classList.toggle('open');
+    });
+</script>
+
+</html>

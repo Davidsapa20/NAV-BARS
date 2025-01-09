@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh Market</title>
+    <style>
+        /* Reset and basic styling */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        /* Navbar styling */
+        
+        body {
+            background-color: #f9f6ef;
+            color: #333;
+        }
+        
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1em 2em;
+            background-color: #fff;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        /* Logo styling */
+        
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+        
+        .navbar .logo img {
+            width: 24px;
+            margin-right: 0.5em;
+        }
+        /* Links styling */
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5em;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1em;
+            font-weight: 500;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #2e7d32;
+        }
+        /* Search bar styling */
+        
+        .search-bar {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #333;
+            padding: 0.25em;
+        }
+        
+        .search-bar input {
+            border: none;
+            outline: none;
+            font-size: 1em;
+            padding: 0.25em;
+        }
+        
+        .search-bar input::placeholder {
+            color: #999;
+        }
+        
+        .search-bar .search-icon {
+            color: #333;
+            font-size: 1.25em;
+            margin-left: 0.5em;
+            cursor: pointer;
+        }
+        /* Icons styling */
+        
+        .icons {
+            display: flex;
+            align-items: center;
+            gap: 1em;
+            font-size: 1.2em;
+            color: #333;
+        }
+        /* Hero Section */
+        
+        .hero {
+            text-align: center;
+            padding: 5em 2em;
+            background: url('https://example.com/hero-image.jpg') no-repeat center center/cover;
+            color: #2e7d32;
+        }
+        
+        .hero h1 {
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 0.5em;
+        }
+        
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 1em;
+        }
+        
+        .hero .btn {
+            padding: 0.75em 1.5em;
+            background-color: #2e7d32;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .hero .btn:hover {
+            background-color: #1b5e20;
+        }
+        /* Responsive navbar for smaller screens */
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .menu-toggle {
+                display: block;
+                font-size: 1.5em;
+                cursor: pointer;
+            }
+            .search-bar,
+            .icons {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <!-- Logo -->
+            <div class="logo">
+                <img src="https://example.com/logo.png" alt="Logo"> Fresh Market
+            </div>
+            <!-- Links -->
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <!-- Search bar -->
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <span class="search-icon">&#128269;</span>
+            </div>
+            <!-- Icons -->
+            <div class="icons">
+                <span>&#128100;</span>
+                <!-- User Icon -->
+                <span>&#128722;</span>
+                <!-- Cart Icon -->
+            </div>
+            <div class="menu-toggle">&#9776;</div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>FRESH MARKET</h1>
+        <p>We'll deliver everything you need</p>
+        <button class="btn">Shop Online</button>
+    </section>
+
+    <!-- JavaScript for Mobile Toggle -->
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('open');
+        });
+    </script>
+</body>
+
+</html>
